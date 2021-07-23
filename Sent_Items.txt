@@ -1,0 +1,38 @@
+package sent_items;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class TC_Sent_Items_001 {
+
+	public static void main(String[] args) throws InterruptedException {
+		
+		// TODO Auto-generated method stub
+
+		System.setProperty("webdriver.chrome.driver","D:\\SeleniumDrivers\\chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+
+		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+	
+		
+		driver.get("https://mail.google.com");
+		driver.findElement(By.id("identifierId")).sendKeys("Dummytestingproject@gmail.com");
+		driver.findElement(By.xpath("//*[@id='identifierNext']")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.name("password")).sendKeys("Asdf@1234");
+		driver.findElement(By.xpath("//*[@id='passwordNext']")).click();
+		// click on the profile icon
+		//driver.findElement(By.xpath("//*[@id='gb']/div[2]/div[3]/div/div[2]/div/a")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.cssSelector(".TO.nZ.aiq")).click();
+		Thread.sleep(1000);
+		driver.close();
+		driver.quit();
+		
+	}
+
+}
